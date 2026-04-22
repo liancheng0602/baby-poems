@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日古诗 · 宝宝与我的诗词册</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Songti SC", "STSong", "SimSun", serif;
+    background: #fdf6ec;
+    color: #3a2e1e;
+    min-height: 100vh;
+    padding: 30px 16px 60px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    color: #8b3a1a;
+  }
+  header p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #a07850;
+    letter-spacing: 2px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #fff9f0;
+    border: 1px solid #e8d5b0;
+    border-radius: 12px;
+    padding: 28px 24px 22px;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(139,58,26,0.07);
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .card.today {
+    border-color: #c0753a;
+    box-shadow: 0 4px 20px rgba(192,117,58,0.18);
+  }
+  .badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.72rem;
+    background: #e8d5b0;
+    color: #8b5a2a;
+    border-radius: 20px;
+    padding: 2px 10px;
+    letter-spacing: 1px;
+  }
+  .card.today .badge {
+    background: #c0753a;
+    color: #fff;
+  }
+  .date {
+    font-size: 0.8rem;
+    color: #b09070;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #8b3a1a;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+  .author {
+    font-size: 0.85rem;
+    color: #a07850;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+  }
+  .poem {
+    font-size: 1.05rem;
+    line-height: 2.2;
+    letter-spacing: 2px;
+    color: #3a2e1e;
+    border-left: 3px solid #e8c090;
+    padding-left: 14px;
+    margin-bottom: 18px;
+  }
+  .pinyin {
+    font-size: 0.78rem;
+    color: #b09070;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-family: "PingFang SC", sans-serif;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    color: #c0753a;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    font-family: "PingFang SC", sans-serif;
+  }
+  .meaning {
+    font-size: 0.85rem;
+    color: #6a5540;
+    line-height: 1.9;
+    font-family: "PingFang SC", sans-serif;
+    margin-bottom: 16px;
+  }
+  .baby-tip {
+    background: #fff3e0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    color: #7a5030;
+    line-height: 1.8;
+    font-family: "PingFang SC", sans-serif;
+  }
+  .baby-tip::before {
+    content: "👶 宝宝朗读贴士  ";
+    font-weight: bold;
+    color: #c0753a;
+  }
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #c0a070;
+    letter-spacing: 2px;
+    font-family: "PingFang SC", sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>每日古诗</h1>
+  <p>宝宝与我的诗词册 · 每天一首</p>
+</header>
+
+<div class="grid">
+
+  <!-- 2026-04-22 今日 -->
+  <div class="card today">
+    <span class="badge">今日 · 七言绝句</span>
+    <div class="date">2026年4月22日</div>
+    <div class="title">《村居》</div>
+    <div class="author">〔清〕高鼎</div>
+    <div class="poem">
+      草长莺飞二月天，<br>
+      拂堤杨柳醉春烟。<br>
+      儿童散学归来早，<br>
+      忙趁东风放纸鸢。
+    </div>
+    <div class="pinyin">
+      cǎo zhǎng yīng fēi èr yuè tiān，<br>
+      fú dī yáng liǔ zuì chūn yān。<br>
+      ér tóng sàn xué guī lái zǎo，<br>
+      máng chèn dōng fēng fàng zhǐ yuān。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">二月里草长莺飞，杨柳枝条轻拂堤岸，仿佛陶醉在春天的烟雾里。孩子们放学回来得早，赶忙趁着东风放风筝。</div>
+    <div class="baby-tip">"忙趁东风放纸鸢"——风筝！宝宝一定感兴趣 🪁 带宝宝去公园时念这首再合适不过，看到草地念"草长莺飞"，感受到风念"东风"，看到孩子跑就念最后一句，诗和生活完全重合，启蒙效果加倍！</div>
+  </div>
+
+  <!-- 2026-04-21 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月21日</div>
+    <div class="title">《绝句》</div>
+    <div class="author">〔宋〕僧志南</div>
+    <div class="poem">
+      古木阴中系短篷，<br>
+      杖藜扶我过桥东。<br>
+      沾衣欲湿杏花雨，<br>
+      吹面不寒杨柳风。
+    </div>
+    <div class="pinyin">
+      gǔ mù yīn zhōng jì duǎn péng，<br>
+      zhàng lí fú wǒ guò qiáo dōng。<br>
+      zhān yī yù shī xìng huā yǔ，<br>
+      chuī miàn bù hán yáng liǔ fēng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">把小船系在古树的树荫下，拄着藜杖走过桥东。细雨沾上衣裳，湿润而不淋透，那是杏花开时的春雨；风吹在脸上，轻柔而不寒凉，那是拂动杨柳的春风。</div>
+    <div class="baby-tip">"杏花雨""杨柳风"——两个超美的春天意象！抱着宝宝出门散步时可以念这首，感受到风就说"吹面不寒杨柳风"，碰到细雨就说"沾衣欲湿杏花雨"，诗句和真实感受合在一起，宝宝会记得特别深 🌧️🌿</div>
+  </div>
+
+  <!-- 2026-04-20 -->
+  <div class="card">
+    <span class="badge">五言古诗</span>
+    <div class="date">2026年4月20日</div>
+    <div class="title">《咏鹅》</div>
+    <div class="author">〔唐〕骆宾王</div>
+    <div class="poem">
+      鹅，鹅，鹅，<br>
+      曲项向天歌。<br>
+      白毛浮绿水，<br>
+      红掌拨清波。
+    </div>
+    <div class="pinyin">
+      é，é，é，<br>
+      qū xiàng xiàng tiān gē。<br>
+      bái máo fú lǜ shuǐ，<br>
+      hóng zhǎng bō qīng bō。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">鹅鹅鹅，伸着弯曲的脖子对天高歌。白色的羽毛漂浮在碧绿的水面上，红色的脚掌拨动着清清的水波。</div>
+    <div class="baby-tip">这是公认最适合宝宝启蒙的古诗！"鹅鹅鹅"三个字反复叫出来，宝宝最爱！念诗时可以伸长脖子学鹅叫，用手掌模仿鹅掌拨水，边念边做动作，宝宝会咯咯笑 🦢</div>
+  </div>
+
+  <!-- 2026-04-18 -->
+  <div class="card">
+    <span class="badge">宋词</span>
+    <div class="date">2026年4月18日</div>
+    <div class="title">《清平乐·村居》</div>
+    <div class="author">〔宋〕辛弃疾</div>
+    <div class="poem">
+      茅檐低小，<br>
+      溪上青青草。<br>
+      醉里吴音相媚好，<br>
+      白发谁家翁媪？<br>
+      大儿锄豆溪东，<br>
+      中儿正织鸡笼。<br>
+      最喜小儿无赖，<br>
+      溪头卧剥莲蓬。
+    </div>
+    <div class="pinyin">
+      máo yán dī xiǎo，<br>
+      xī shàng qīng qīng cǎo。<br>
+      zuì lǐ wú yīn xiāng mèi hǎo，<br>
+      bái fà shuí jiā wēng ǎo？<br>
+      dà ér chú dòu xī dōng，<br>
+      zhōng ér zhèng zhī jī lóng。<br>
+      zuì xǐ xiǎo ér wú lài，<br>
+      xī tóu wò bō lián péng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">低矮的茅草屋旁，溪边长满青青的草。微醉中两位老人用吴地方言絮絮说话，那白发苍苍的是谁家的翁和婆？大儿子在溪东锄豆，二儿子在编织鸡笼，最让人喜爱的是小儿子，调皮地趴在溪头剥莲蓬。</div>
+    <div class="baby-tip">"小儿无赖，溪头卧剥莲蓬"——说的不就是宝宝嘛！念这两句时可以指着宝宝笑说"就是你！"，宝宝虽然不懂，但感受到开心就够了 😄 这首词画面感极强，短句多，念起来像讲故事，非常适合亲子朗读。</div>
+  </div>
+
+  <!-- 2026-04-17 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月17日</div>
+    <div class="title">《早发白帝城》</div>
+    <div class="author">〔唐〕李白</div>
+    <div class="poem">
+      朝辞白帝彩云间，<br>
+      千里江陵一日还。<br>
+      两岸猿声啼不住，<br>
+      轻舟已过万重山。
+    </div>
+    <div class="pinyin">
+      zhāo cí bái dì cǎi yún jiān，<br>
+      qiān lǐ jiāng líng yī rì huán。<br>
+      liǎng àn yuán shēng tí bù zhù，<br>
+      qīng zhōu yǐ guò wàn chóng shān。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">清晨告别彩云环绕的白帝城，千里之外的江陵一天就能到达。两岸猿猴的叫声此起彼伏，还没停歇，轻快的小船已经穿过了万重山峦。</div>
+    <div class="baby-tip">节奏飞快！念"一日还～"时用手在空中画个大弧线，表示跑得好快。"轻舟已过～万重山"一句念得越快越好，像船在飞一样。念"猿声啼不住"时模仿猴子叫，宝宝一定乐翻天 🐒</div>
+  </div>
+
+  <!-- 2026-04-16 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月16日</div>
+    <div class="title">《悯农》</div>
+    <div class="author">〔唐〕李绅</div>
+    <div class="poem">
+      锄禾日当午，<br>
+      汗滴禾下土。<br>
+      谁知盘中餐，<br>
+      粒粒皆辛苦。
+    </div>
+    <div class="pinyin">
+      chú hé rì dāng wǔ，<br>
+      hàn dī hé xià tǔ。<br>
+      shuí zhī pán zhōng cān，<br>
+      lì lì jiē xīn kǔ。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">农民在正午烈日下锄地，汗水滴落在禾苗下的泥土里。有谁知道盘中的饭食，每一粒都来之不易呢？</div>
+    <div class="baby-tip">这首诗和生活场景直接相关！吃饭的时候念最好——指着一碗饭说"粒粒皆辛苦"，让宝宝知道粮食来之不易。念"锄禾～"时做个挥锄头的动作，宝宝会模仿！简单好背，两岁以后基本都能跟着念 🌾</div>
+  </div>
+
+  <!-- 2026-04-15 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月15日</div>
+    <div class="title">《江雪》</div>
+    <div class="author">〔唐〕柳宗元</div>
+    <div class="poem">
+      千山鸟飞绝，<br>
+      万径人踪灭。<br>
+      孤舟蓑笠翁，<br>
+      独钓寒江雪。
+    </div>
+    <div class="pinyin">
+      qiān shān niǎo fēi jué，<br>
+      wàn jìng rén zōng miè。<br>
+      gū zhōu suō lì wēng，<br>
+      dú diào hán jiāng xuě。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">千座山间，鸟儿飞尽，万条小路上，不见人的踪影。只有一叶孤舟上，一位穿着蓑衣戴着斗笠的老翁，独自在寒江上垂钓。</div>
+    <div class="baby-tip">这首诗像一幅画！念"千山～"时双手向外张开放在头顶（大山），念"独钓"时做个钓鱼甩竿的动作。全诗四个韵脚"绝、灭、翁、雪"一字一顿，节奏感极强。等冬天到了再念一遍，宝宝会对"雪"字有特别感受 ⛄</div>
+  </div>
+
+  <!-- 2026-04-14 -->
+  <div class="card">
+    <span class="badge">五言律诗</span>
+    <div class="date">2026年4月14日</div>
+    <div class="title">《山居秋暝》</div>
+    <div class="author">〔唐〕王维</div>
+    <div class="poem">
+      空山新雨后，<br>
+      天气晚来秋。<br>
+      明月松间照，<br>
+      清泉石上流。<br>
+      竹喧归浣女，<br>
+      莲动下渔舟。<br>
+      随意春芳歇，<br>
+      王孙自可留。
+    </div>
+    <div class="pinyin">
+      kōng shān xīn yǔ hòu，<br>
+      tiān qì wǎn lái qiū。<br>
+      míng yuè sōng jiān zhào，<br>
+      qīng quán shí shàng liú。<br>
+      zhú xuān guī huàn nǚ，<br>
+      lián dòng xià yú zhōu。<br>
+      suí yì chūn fāng xiē，<br>
+      wáng sūn zì kě liú。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">空旷的山里刚下过一场雨，傍晚的天气带着秋意。明月的光辉在松林间照耀，清澈的泉水在石头上潺潺流淌。竹林里传来洗衣女归家的喧笑声，莲叶轻轻晃动，是渔舟划过。就算春天的花草已经凋谢，这里的风景，王孙们完全可以久留。</div>
+    <div class="baby-tip">"明月松间照，清泉石上流"是最适合念给宝宝听的两句——轻声慢读，配合手势：手指向上画圆（月亮），再用手指弯弯流动（流水）。音韵柔和，像摇篮曲一样安静美好 🌙</div>
+  </div>
+
+  <!-- 2026-04-13 -->
+  <div class="card">
+    <span class="badge">五言律诗</span>
+    <div class="date">2026年4月13日</div>
+    <div class="title">《春夜喜雨》</div>
+    <div class="author">〔唐〕杜甫</div>
+    <div class="poem">
+      好雨知时节，<br>
+      当春乃发生。<br>
+      随风潜入夜，<br>
+      润物细无声。<br>
+      野径云俱黑，<br>
+      江船火独明。<br>
+      晓看红湿处，<br>
+      花重锦官城。
+    </div>
+    <div class="pinyin">
+      hǎo yǔ zhī shí jié，<br>
+      dāng chūn nǎi fā shēng。<br>
+      suí fēng qián rù yè，<br>
+      rùn wù xì wú shēng。<br>
+      yě jìng yún jù hēi，<br>
+      jiāng chuán huǒ dú míng。<br>
+      xiǎo kàn hóng shī chù，<br>
+      huā zhòng jǐn guān chéng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">好雨仿佛知道时节，春天一到便悄然而来。随着夜风悄悄潜入，细细地滋润万物，无声无息。田间小路和云层都漆黑一片，只有江上渔船的灯火独自明亮。天亮后看那被雨打湿的地方，锦官城里的花朵含露盛开，沉甸甸的。</div>
+    <div class="baby-tip">"润物细无声"是这首诗的灵魂，轻声慢读，像春雨一样轻柔。可以在念诗时轻轻用手指在宝宝手心上点点，模仿雨滴落下的感觉，宝宝会咯咯笑！前四句最适合反复吟诵，朗朗上口。</div>
+  </div>
+
+  <!-- 2026-04-11 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月11日</div>
+    <div class="title">《凉州词》</div>
+    <div class="author">〔唐〕王翰</div>
+    <div class="poem">
+      葡萄美酒夜光杯，<br>
+      欲饮琵琶马上催。<br>
+      醉卧沙场君莫笑，<br>
+      古来征战几人回。
+    </div>
+    <div class="pinyin">
+      pú táo měi jiǔ yè guāng bēi，<br>
+      yù yǐn pí pá mǎ shàng cuī。<br>
+      zuì wò shā chǎng jūn mò xiào，<br>
+      gǔ lái zhēng zhàn jǐ rén huí。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">葡萄酿的美酒盛在夜光杯里，正要举杯痛饮，马背上琵琶声已在催促出发。就算醉倒在沙场上，你也别笑我——自古以来出征打仗，有几个人能活着回来？</div>
+    <div class="baby-tip">开头"葡萄～美酒～"音节圆润好听，宝宝很容易跟读。念"琵琶"时可以做弹琴的手势，生动有趣。这首诗豪迈中带着深沉，节奏铿锵，"杯、催、回"押韵响亮，末字拖长念出来特别过瘾！</div>
+  </div>
+
+  <!-- 2026-04-10 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月10日</div>
+    <div class="title">《风》</div>
+    <div class="author">〔唐〕李峤</div>
+    <div class="poem">
+      解落三秋叶，<br>
+      能开二月花。<br>
+      过江千尺浪，<br>
+      入竹万竿斜。
+    </div>
+    <div class="pinyin">
+      jiě luò sān qiū yè，<br>
+      néng kāi èr yuè huā。<br>
+      guò jiāng qiān chǐ làng，<br>
+      rù zhú wàn gǎn xié。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">它能吹落秋天的树叶，能吹开二月的鲜花；吹过江面卷起千尺高的浪，吹进竹林让万根竹竿都倾斜。——猜猜是什么？是风！</div>
+    <div class="baby-tip">这首诗像一个谜语，全篇描写风的力量却一字不提"风"！可以念完最后一句，问宝宝："猜猜这是什么呀？"然后鼓着腮帮子"呼～"地吹一口气。"叶、花、斜"末字念得轻盈一些，像风吹过的感觉。</div>
+  </div>
+
+  <!-- 2026-04-09 -->
+  <div class="card">
+    <span class="badge">五言古诗</span>
+    <div class="date">2026年4月9日</div>
+    <div class="title">《游子吟》</div>
+    <div class="author">〔唐〕孟郊</div>
+    <div class="poem">
+      慈母手中线，<br>
+      游子身上衣。<br>
+      临行密密缝，<br>
+      意恐迟迟归。<br>
+      谁言寸草心，<br>
+      报得三春晖。
+    </div>
+    <div class="pinyin">
+      cí mǔ shǒu zhōng xiàn，<br>
+      yóu zǐ shēn shàng yī。<br>
+      lín xíng mì mì féng，<br>
+      yì kǒng chí chí guī。<br>
+      shuí yán cùn cǎo xīn，<br>
+      bào dé sān chūn huī。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">慈祥的母亲手拿针线，为即将远行的孩子缝制衣裳。临别前一针针缝得格外细密，心里担心孩子迟迟不能归来。谁说那小草的心意，能够报答得了春天阳光的恩情呢？</div>
+    <div class="baby-tip">这首诗可以边念边做"缝衣服"的动作——双手上下穿针引线，宝宝会觉得很好玩！"衣、归、晖"押韵。等宝宝长大些，这首诗会让他记得妈妈的爱 💛 现在念，是把温暖种进心里。</div>
+  </div>
+
+  <!-- 2026-04-08 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月8日</div>
+    <div class="title">《望庐山瀑布》</div>
+    <div class="author">〔唐〕李白</div>
+    <div class="poem">
+      日照香炉生紫烟，<br>
+      遥看瀑布挂前川。<br>
+      飞流直下三千尺，<br>
+      疑是银河落九天。
+    </div>
+    <div class="pinyin">
+      rì zhào xiāng lú shēng zǐ yān，<br>
+      yáo kàn pù bù guà qián chuān。<br>
+      fēi liú zhí xià sān qiān chǐ，<br>
+      yí shì yín hé luò jiǔ tiān。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">阳光照耀香炉峰，升起紫色的云烟；远远望去，瀑布像一条白练挂在山前。水流飞泻直冲而下，仿佛有三千尺之长，让人疑心是银河从九重天上落了下来。</div>
+    <div class="baby-tip">念"飞流直下～三千尺～"时可以举起双手从高处向下挥，模仿瀑布飞落的动作，宝宝特别喜欢这种夸张的大动作！"烟、川、天"押韵，末字拖长，豪迈感十足。</div>
+  </div>
+
+  <!-- 手动补录：绝句 杜甫 -->
+  <div class="card">
+    <span class="badge">手动补录 · 五言绝句</span>
+    <div class="date">2026年4月7日</div>
+    <div class="title">《绝句》</div>
+    <div class="author">〔唐〕杜甫</div>
+    <div class="poem">
+      两个黄鹂鸣翠柳，<br>
+      一行白鹭上青天。<br>
+      窗含西岭千秋雪，<br>
+      门泊东吴万里船。
+    </div>
+    <div class="pinyin">
+      liǎng gè huáng lí míng cuì liǔ，<br>
+      yī xíng bái lù shàng qīng tiān。<br>
+      chuāng hán xī lǐng qiān qiū xuě，<br>
+      mén pō dōng wú wàn lǐ chuán。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">两只黄鹂在翠绿的柳树间鸣叫，一行白鹭飞向蔚蓝的天空。透过窗子望见西岭积雪千年不化，门前停泊着从万里之外东吴驶来的船。</div>
+    <div class="baby-tip">颜色丰富极了——黄、翠、白、青，像一幅明亮的画！念"黄鹂～"时模仿小鸟叫，念"白鹭上青天"时张开双臂飞翔，边念边动，宝宝会爱上这首！"天、雪、船"末字响亮，可以拖长音唱出来。</div>
+  </div>
+
+  <!-- 2026-04-07 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月7日</div>
+    <div class="title">《寻隐者不遇》</div>
+    <div class="author">〔唐〕贾岛</div>
+    <div class="poem">
+      松下问童子，<br>
+      言师采药去。<br>
+      只在此山中，<br>
+      云深不知处。
+    </div>
+    <div class="pinyin">
+      sōng xià wèn tóng zǐ，<br>
+      yán shī cǎi yào qù。<br>
+      zhǐ zài cǐ shān zhōng，<br>
+      yún shēn bù zhī chù。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">在松树下问小童：你师父去哪儿了？童子说：师父去山里采药了。就在这座山中，只是云雾太深，不知道具体在哪里。</div>
+    <div class="baby-tip">这首诗像一段有趣的对话，可以和宝宝角色扮演——你问"师父在哪里呀？"，宝宝答"不知道～"。短句五个字，口语感很强，特别容易跟读。念"云深～"时可以张开双手摆出神秘的雾气感！</div>
+  </div>
+
+  <!-- 2026-04-06 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月6日</div>
+    <div class="title">《出塞》</div>
+    <div class="author">〔唐〕王昌龄</div>
+    <div class="poem">
+      秦时明月汉时关，<br>
+      万里长征人未还。<br>
+      但使龙城飞将在，<br>
+      不教胡马度阴山。
+    </div>
+    <div class="pinyin">
+      qín shí míng yuè hàn shí guān，<br>
+      wàn lǐ cháng zhēng rén wèi huán。<br>
+      dàn shǐ lóng chéng fēi jiàng zài，<br>
+      bù jiào hú mǎ dù yīn shān。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">秦汉时的明月，秦汉时的边关，万里长途征战的将士至今未能归还。只要龙城的飞将军李广还在，就决不让敌人的骑兵越过阴山南下。</div>
+    <div class="baby-tip">节奏铿锵有力，念"万里～长征～"时可以和宝宝一起踏步走，模仿行军。"关、还、山"押韵，末字拖音响亮。这首诗大气磅礴，让宝宝从小感受诗的雄壮之美！</div>
+  </div>
+
+  <!-- 2026-04-05 下午新增 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">2026年4月5日</div>
+    <div class="title">《题西林壁》</div>
+    <div class="author">〔宋〕苏轼</div>
+    <div class="poem">
+      横看成岭侧成峰，<br>
+      远近高低各不同。<br>
+      不识庐山真面目，<br>
+      只缘身在此山中。
+    </div>
+    <div class="pinyin">
+      héng kàn chéng lǐng cè chéng fēng，<br>
+      yuǎn jìn gāo dī gè bù tóng。<br>
+      bù shí lú shān zhēn miàn mù，<br>
+      zhǐ yuán shēn zài cǐ shān zhōng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">横着看庐山是连绵的山岭，侧着看是高耸的山峰，远近高低各不相同。认不清庐山真正的样子，只因为自己就身处山中。</div>
+    <div class="baby-tip">念"横～侧～远～近～"时配合动作，带宝宝左看右看、前后摇摆，边念边动。"峰、同、中"押韵，末字用夸张的拖音，宝宝对节奏感特别敏感！</div>
+  </div>
+
+  <!-- 手动补录：惠崇春江晚景 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">手动补录</div>
+    <div class="title">《惠崇春江晚景》</div>
+    <div class="author">〔宋〕苏轼</div>
+    <div class="poem">
+      竹外桃花三两枝，<br>
+      春江水暖鸭先知。<br>
+      蒌蒿满地芦芽短，<br>
+      正是河豚欲上时。
+    </div>
+    <div class="pinyin">
+      zhú wài táo huā sān liǎng zhī，<br>
+      chūn jiāng shuǐ nuǎn yā xiān zhī。<br>
+      lóu hāo mǎn dì lú yá duǎn，<br>
+      zhèng shì hé tún yù shàng shí。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">竹林外，桃花三两枝悄悄开放；春天的江水渐渐变暖，鸭子最先感知到了。蒌蒿铺满了地，芦苇刚刚冒出嫩芽——正是河豚逆流而上的好时节。</div>
+    <div class="baby-tip">念"鸭先知"时可以学鸭子叫"嘎嘎嘎"，宝宝最爱！"枝、知、时"押韵，节奏欢快。这首是苏轼给画作写的题诗，画面感很强，可以边念边用手比划竹子、桃花、小鸭子。</div>
+  </div>
+
+  <!-- 手动补录：咏柳 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">手动补录</div>
+    <div class="title">《咏柳》</div>
+    <div class="author">〔唐〕贺知章</div>
+    <div class="poem">
+      碧玉妆成一树高，<br>
+      万条垂下绿丝绦。<br>
+      不知细叶谁裁出，<br>
+      二月春风似剪刀。
+    </div>
+    <div class="pinyin">
+      bì yù zhuāng chéng yī shù gāo，<br>
+      wàn tiáo chuí xià lǜ sī tāo。<br>
+      bù zhī xì yè shuí cái chū，<br>
+      èr yuè chūn fēng sì jiǎn dāo。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">高高的柳树，像用碧玉装扮而成，万条枝条垂下来，像一根根绿色的丝带。不知道那细细的柳叶是谁裁剪出来的？原来是二月的春风，像一把剪刀。</div>
+    <div class="baby-tip">念"剪刀✂️"时做出剪刀手势，宝宝会觉得很好玩！"高、绦、刀"押韵，末字响亮。如果出门看到柳树，可以指着柳条一起背，场景带入感极强。</div>
+  </div>
+
+  <!-- 手动补录：小池 -->
+  <div class="card">
+    <span class="badge">七言绝句</span>
+    <div class="date">手动补录</div>
+    <div class="title">《小池》</div>
+    <div class="author">〔宋〕杨万里</div>
+    <div class="poem">
+      泉眼无声惜细流，<br>
+      树阴照水爱晴柔。<br>
+      小荷才露尖尖角，<br>
+      早有蜻蜓立上头。
+    </div>
+    <div class="pinyin">
+      quán yǎn wú shēng xī xì liú，<br>
+      shù yīn zhào shuǐ ài qíng róu。<br>
+      xiǎo hé cái lù jiān jiān jiǎo，<br>
+      zǎo yǒu qīng tíng lì shàng tóu。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">泉眼悄无声息地流出细细的水流，树荫映照在水面上，像是爱惜这晴日的柔光。小小的荷叶才刚刚露出尖尖的角，马上就有蜻蜓停在了上面。</div>
+    <div class="baby-tip">"尖尖角"三个字发音圆润可爱，宝宝特别容易跟读！念到"蜻蜓"时可以用手指模仿蜻蜓飞翔停落，互动十足。"流、柔、头"押韵，轻声慢读最有画面感。</div>
+  </div>
+
+  <!-- 2026-04-05 今日 清明节 -->
+  <div class="card today">
+    <span class="badge">今日 · 七言绝句</span>
+    <div class="date">2026年4月5日 · 清明</div>
+    <div class="title">《清明》</div>
+    <div class="author">〔唐〕杜牧</div>
+    <div class="poem">
+      清明时节雨纷纷，<br>
+      路上行人欲断魂。<br>
+      借问酒家何处有？<br>
+      牧童遥指杏花村。
+    </div>
+    <div class="pinyin">
+      qīng míng shí jié yǔ fēn fēn，<br>
+      lù shàng xíng rén yù duàn hún。<br>
+      jiè wèn jiǔ jiā hé chù yǒu？<br>
+      mù tóng yáo zhǐ xìng huā cūn。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">清明时节，细雨飘飘洒洒，路上的行人心情惆怅、思绪纷乱。问一问哪里有酒家可以歇歇脚？放牛的小孩儿朝远处一指——杏花村！</div>
+    <div class="baby-tip">节奏轻快，念"雨纷纷～"时可以用手指轻弹，模仿雨滴落下。最后一句"杏花村"可以和宝宝一起伸手指远方，互动感超强！"纷、魂、村"押韵，末字拖长吟唱。</div>
+  </div>
+
+  <!-- 2026-04-03 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月3日</div>
+    <div class="title">《鹿柴》</div>
+    <div class="author">〔唐〕王维</div>
+    <div class="poem">
+      空山不见人，<br>
+      但闻人语响。<br>
+      返景入深林，<br>
+      复照青苔上。
+    </div>
+    <div class="pinyin">
+      kōng shān bù jiàn rén，<br>
+      dàn wén rén yǔ xiǎng。<br>
+      fǎn jǐng rù shēn lín，<br>
+      fù zhào qīng tái shàng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">空旷的山里看不见人，却隐隐听到有人说话的声音。夕阳的余晖透进幽深的树林，又映照在青苔上。</div>
+    <div class="baby-tip">轻声慢读最有味道，念「空山～」时可以做个夸张的"四处张望找不到人"的动作，宝宝一定觉得好玩！"响、上"押韵，末字拖长音。</div>
+  </div>
+
+  <!-- 2026-04-02 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月2日</div>
+    <div class="title">《相思》</div>
+    <div class="author">〔唐〕王维</div>
+    <div class="poem">
+      红豆生南国，<br>
+      春来发几枝。<br>
+      愿君多采撷，<br>
+      此物最相思。
+    </div>
+    <div class="pinyin">
+      hóng dòu shēng nán guó，<br>
+      chūn lái fā jǐ zhī。<br>
+      yuàn jūn duō cǎi xié，<br>
+      cǐ wù zuì xiāng sī。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">红豆生长在南方，春天来了又抽出几枝新芽。希望你多采一些，这东西最能寄托相思之情。</div>
+    <div class="baby-tip">「红豆～」两个字圆润好听，宝宝很容易跟读。可以拿一粒红豆或红色小物件配合朗读，边说「红豆」边给宝宝看，视觉加语音一起刺激，印象更深！</div>
+  </div>
+
+  <!-- 2026-04-01 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年4月1日</div>
+    <div class="title">《登鹳雀楼》</div>
+    <div class="author">〔唐〕王之涣</div>
+
+    <div class="poem">
+      白日依山尽，<br>
+      黄河入海流。<br>
+      欲穷千里目，<br>
+      更上一层楼。
+    </div>
+    <div class="pinyin">
+      bái rì yī shān jìn，<br>
+      huáng hé rù hǎi liú。<br>
+      yù qióng qiān lǐ mù，<br>
+      gèng shàng yī céng lóu。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">夕阳顺着山势渐渐落下，滔滔黄河奔向大海。想要看到更远的风景，就必须再往上爬一层楼。</div>
+    <div class="baby-tip">重点念「楼～」字，拖长音节最好玩！指着窗外的楼房配合朗读，宝宝会对"楼"字特别有感觉。节奏感强，四句一气呵成。</div>
+  </div>
+
+  <!-- 2026-03-31 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年3月31日</div>
+    <div class="title">《春晓》</div>
+    <div class="author">〔唐〕孟浩然</div>
+    <div class="poem">
+      春眠不觉晓，<br>
+      处处闻啼鸟。<br>
+      夜来风雨声，<br>
+      花落知多少。
+    </div>
+    <div class="pinyin">
+      chūn mián bù jué xiǎo，<br>
+      chù chù wén tí niǎo，<br>
+      yè lái fēng yǔ shēng，<br>
+      huā luò zhī duō shǎo。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">春天睡得香，不觉天亮了。四处都听到鸟儿啼鸣。想起昨夜风雨阵阵，不知道落了多少花。</div>
+    <div class="baby-tip">念到"啼鸟"时模仿小鸟叫一声，宝宝最喜欢！"晓、鸟、少"押韵，拖长音朗读效果极好。</div>
+  </div>
+
+  <!-- 2026-03-28 -->
+  <div class="card">
+    <span class="badge">五言绝句</span>
+    <div class="date">2026年3月28日</div>
+    <div class="title">《静夜思》</div>
+    <div class="author">〔唐〕李白</div>
+    <div class="poem">
+      床前明月光，<br>
+      疑是地上霜。<br>
+      举头望明月，<br>
+      低头思故乡。
+    </div>
+    <div class="pinyin">
+      chuáng qián míng yuè guāng，<br>
+      yí shì dì shàng shuāng。<br>
+      jǔ tóu wàng míng yuè，<br>
+      dī tóu sī gù xiāng。
+    </div>
+    <div class="section-label">译文</div>
+    <div class="meaning">月光洒在床前，亮得像地上铺了一层霜。抬头望向明月，低头涌起对故乡的思念。</div>
+    <div class="baby-tip">"光、霜、乡"押韵，每句末尾拖长音，像唱儿歌一样念，宝宝对韵律最敏感。</div>
+  </div>
+
+</div>
+
+<footer>共收录 26 首 · 每日更新</footer>
+
+</body>
+</html>
